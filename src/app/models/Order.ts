@@ -1,6 +1,5 @@
 import mongoose from "mongoose";
 
-
 const orderSchema = new mongoose.Schema({
   drinks: [{
     type: mongoose.Schema.Types.ObjectId,
@@ -10,7 +9,7 @@ const orderSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'BreakfastOrder'
   }],
-  price: {
+  totalPrice: {
     type: Number,
     required: true
   },
@@ -20,3 +19,4 @@ const orderSchema = new mongoose.Schema({
     default: 'InProgress'
   }
 });
+const Order = mongoose.model('Order', orderSchema);
