@@ -1,4 +1,6 @@
+import mongoose from "mongoose"
 import LayOut from "../components/layout"
+import clientPromise from "../lib/mongodb"
 
 export default function Orders() {
   return (
@@ -7,8 +9,10 @@ export default function Orders() {
     </>
   )
 }
-export default async function handle(req, res) {
+export default function handle(req, res) {
   const { method } = req
+  mongoose.Promise = clientPromise
+
   if (method === "GET") {
     res.json(await Order.find())
   }
