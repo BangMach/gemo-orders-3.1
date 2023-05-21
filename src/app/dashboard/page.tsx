@@ -1,16 +1,11 @@
 import { FC } from "react"
-import Nav from "../components/nav";
+import LayOut from "../components/layout"
+import Nav from "../components/nav"
 
-interface DashBoardProps {
-}
- 
+interface DashBoardProps {}
+
 const DashBoard: FC<DashBoardProps> = ({}) => {
-    return(
-        <div className="bg-blue-900 min-h-screen">
-            <Nav/>
-        <div> DashBoard</div>
-      </div>
-      ) 
+  return <LayOut>Test</LayOut>
 }
- 
-export default DashBoard;
+
+export default DashBoard
