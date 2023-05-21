@@ -7,3 +7,13 @@ export default function Orders() {
     </>
   )
 }
+export default async function handle(req, res) {
+  const { method } = req
+  if (method === "GET") {
+    res.json(await Order.find())
+  }
+  if (method === "POST") {
+    const { name, parentOrder } = req.body
+    co
+  }
+}
