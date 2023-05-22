@@ -49,7 +49,13 @@ const products = [
   // Add more products here
 ]
 
-export default function Drinks() {
+export default function DrinksPage() {
+  const [drinks, setDrinks] = useState<IDrink[]>([]);
+  useEffect(() => {
+    axios.get('/api/drinks').then(response => {
+      setDrinks(response.data);
+    });
+  }, []);
   return (
     <>
       <LayOut>
