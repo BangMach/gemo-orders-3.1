@@ -1,9 +1,10 @@
+"use client";
 import LayOut from "../components/layout";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { IDrink } from "../models/Drinks";
-"use client;"
+
 export default function DrinksPage() {
   const [drinks, setDrinks] = useState<IDrink[]>([]);
   useEffect(() => {
