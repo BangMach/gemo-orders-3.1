@@ -1,11 +1,22 @@
-import mongoose, { model, Schema, models } from "mongoose";
+import mongoose from "mongoose";
 
-const OrderSchema = new Schema({
-    id: mongoose.Types.ObjectId,
-    price: Number,
-    drink: { type: mongoose.Types.ObjectId, ref: 'Drinks' },
-    breakfast: { type: mongoose.Types.ObjectId, ref: 'Breakfast' },
-}, {
-    timestamps: true,
+const orderSchema = new mongoose.Schema({
+  drinks: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'DrinkOrder'
+  }],
+  breakfasts: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'BreakfastOrder'
+  }],
+  totalPrice: {
+    type: Number,
+    required: true
+  },
+  status: {
+    type: String,
+    enum: ['InProgress', 'Completed', 'Discarded'],
+    default: 'InProgress'
+  }
 });
-export const Breakfast = models.Breakfast || model('Breakfast', OrderSchema);
+const Order = mongoose.model('Order', orderSchema);
