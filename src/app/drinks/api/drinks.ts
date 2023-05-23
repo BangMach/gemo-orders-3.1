@@ -14,17 +14,9 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
         }
     }
 
-    // if (method === 'POST') {
-    //     const { name, null, null, null, null, null } = req.body;
-    //     const drinkDoc = await Drinks.create({
-    //         title, description, price, images, category, properties,
-    //     })
-    //     res.json(drinkDoc);
-    // }
-
     if (method === 'PUT') {
-        const { name, size, type, chocolateSauce, whippedCream, _id } = req.body;
-        await Drinks.updateOne({ _id }, { name, size, type, chocolateSauce, whippedCream });
+        const { size, type, chocolateSauce, whippedCream, _id } = req.body;
+        await Drinks.updateOne({ id:  _id }, { size: size, type: type, chocolateSauce: chocolateSauce, whippedCream: whippedCream });
         res.json(true);
     }
 
