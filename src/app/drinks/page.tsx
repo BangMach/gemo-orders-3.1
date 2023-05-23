@@ -1,5 +1,8 @@
+import { useEffect, useState } from "react";
 import LayOut from "../components/layout"
 import ProductsGrid from "../components/productGrid"
+import axios from "axios";
+import { IDrink } from "../models/Drinks";
 
 // Sample product data
 const products = [
