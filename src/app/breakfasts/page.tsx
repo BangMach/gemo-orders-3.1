@@ -1,10 +1,12 @@
 import LayOut from "../components/layout"
-import ProductsGrid from "../components/productGrid"
+import ProductBox from "../components/productBox"
+import { StyledProductsGrid } from "../components/productGrid"
 
 // Sample product data
-const products = [
+const breakfasts = [
   {
     _id: 1,
+    description: "breakfasts",
     title: "Bagel",
     price: 10.99,
     images:
@@ -13,6 +15,8 @@ const products = [
   {
     _id: 2,
     title: "Sandwich",
+    description: "breakfasts",
+
     price: 19.99,
     images:
       "https://res.cloudinary.com/swiggy/image/upload/f_auto,q_auto,fl_lossy/jmn6ueqdjc8nqzn3ompn",
@@ -24,7 +28,12 @@ export default function Breakfast() {
   return (
     <>
       <LayOut>
-        <ProductsGrid products={products}></ProductsGrid>
+        <StyledProductsGrid>
+          {breakfasts?.length > 0 &&
+            breakfasts.map((breakfast) => (
+              <ProductBox key={breakfast._id} {...breakfast} />
+            ))}
+        </StyledProductsGrid>
       </LayOut>
     </>
   )

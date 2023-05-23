@@ -1,6 +1,5 @@
 import { FC } from "react"
 import LayOut from "../components/layout"
-import Nav from "../components/nav"
 
 interface DashBoardProps {}
 

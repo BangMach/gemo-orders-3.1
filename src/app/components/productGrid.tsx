@@ -3,8 +3,7 @@
 import ProductBox from "./productBox"
 import styled from "styled-components"
 
-
-const StyledProductsGrid = styled.div`
+export const StyledProductsGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
