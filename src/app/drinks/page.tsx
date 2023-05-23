@@ -11,6 +11,7 @@ import axios from "axios"
 const products = [
   {
     _id: 1,
+    description: "drinks",
     title: "Hot Coffee",
     price: 10.99,
     images:
@@ -19,6 +20,7 @@ const products = [
   {
     _id: 2,
     title: "Hot Coffee",
+    description: "drinks",
     price: 19.99,
     images:
       "https://product.hstatic.net/1000287491/product/4._ca_phe_sua_da.jpg",
@@ -26,6 +28,8 @@ const products = [
   {
     _id: 3,
     title: "Cold Milktea",
+    description: "drinks",
+
     price: 14.49,
     images:
       "https://product.hstatic.net/1000287491/product/4._ca_phe_sua_da.jpg",
@@ -33,26 +37,11 @@ const products = [
   {
     _id: 2,
     title: "Blended Milk Tea",
+    description: "drinks",
     price: 19.99,
     images:
       "https://product.hstatic.net/1000287491/product/4._ca_phe_sua_da.jpg",
   },
-  {
-    _id: 2,
-    title: "Product 2",
-    price: 19.99,
-    images:
-      "https://product.hstatic.net/1000287491/product/4._ca_phe_sua_da.jpg",
-  },
-  {
-    _id: 2,
-    title: "Product 2",
-    price: 19.99,
-    images:
-      "https://product.hstatic.net/1000287491/product/4._ca_phe_sua_da.jpg",
-  },
-
-  // Add more products here
 ]
 
 export default function DrinksPage() {

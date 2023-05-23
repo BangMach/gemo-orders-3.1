@@ -21,6 +21,18 @@ const breakfasts = [
   },
   // Add more products here
 ]
+const FOOD_CUSTOMIZATIONS = {
+  Sandwich: {
+    Egg: 1,
+    Turkey: 1,
+  },
+  Bagel: {
+    Butter: 0.5,
+    "Cream Cheese": 0.5,
+  },
+  showError: false,
+  errorText: "",
+}
 
 interface pageProps {
   params: {
@@ -34,8 +46,6 @@ const page = async ({ params }: pageProps) => {
   const breakfastId = parseInt(params.breakfastId, 10)
   const Breakfast = breakfasts.find((item) => item._id === breakfastId)
 
-  //logic handling
-
   console.log(params)
   return (
     <>
@@ -46,6 +56,28 @@ const page = async ({ params }: pageProps) => {
             <div>
               <h1>{Breakfast.title}</h1>
               <h2>{Breakfast.price}</h2>
+              <label className="form-label">Additional Food:</label>
+              <ul className="list-group">
+                {Object.keys(FOOD_CUSTOMIZATIONS[Breakfast.title]).map(
+                  (additionalFood) => (
+                    <li key={additionalFood} className="list-group-item">
+                      <div className="form-check">
+                        <input
+                          className="form-check-input"
+                          type="checkbox"
+                          name="additionalFoods"
+                          value={additionalFood}
+                          //checked={additionalFoods.includes(additionalFood)}
+                          // onChange={this.handleInputChange}
+                        />
+                        <label className="form-check-label">
+                          {additionalFood}
+                        </label>
+                      </div>
+                    </li>
+                  )
+                )}
+              </ul>
               <button>Add to Cart</button>
             </div>
           )}

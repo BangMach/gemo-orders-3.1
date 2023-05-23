@@ -31,11 +31,7 @@ export default function Breakfast() {
         <StyledProductsGrid>
           {breakfasts?.length > 0 &&
             breakfasts.map((breakfast) => (
-              <ProductBox
-                description={breakfast.title}
-                key={breakfast._id}
-                {...breakfast}
-              />
+              <ProductBox key={breakfast._id} {...breakfast} />
             ))}
         </StyledProductsGrid>
       </LayOut>
