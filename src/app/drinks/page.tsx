@@ -1,18 +1,11 @@
-<<<<<<< Updated upstream
-import { useEffect, useState } from "react";
-import LayOut from "../components/layout"
-import ProductsGrid from "../components/productGrid"
-import axios from "axios";
-import { IDrink } from "../models/Drinks";
-=======
 "use client"
 
+import { useEffect, useState } from "react"
+
+import { IDrink } from "../models/Drinks"
 import LayOut from "../components/layout"
 import ProductsGrid from "../components/productGrid"
-import { useEffect, useState } from "react"
-import { IDrink } from "../models/Drinks"
 import axios from "axios"
->>>>>>> Stashed changes
 
 // Sample product data
 const products = [
@@ -65,7 +58,7 @@ const products = [
 export default function DrinksPage() {
   const [drinks, setDrinks] = useState<IDrink[]>([])
   useEffect(() => {
-    axios.get("/api/drinks").then((response) => {
+    axios.get("../api/drinks").then((response) => {
       setDrinks(response.data)
     })
   }, [])

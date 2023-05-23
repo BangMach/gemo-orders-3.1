@@ -1,6 +1,9 @@
+"use client"
+
+import { FormattedMessage, IntlProvider } from "react-intl"
 import React, { Component } from "react"
 
-import { FormattedMessage } from "react-intl"
+//import { FormattedMessage } from "react-intl"
 
 class Cart extends Component {
   constructor(props) {
@@ -21,59 +24,59 @@ class Cart extends Component {
   }
 
   addToCart = (item) => {
-    const { cart } = this.state
-    const updatedItem = {
-      ...item,
-    }
-    const updatedItems = [...cart.items, updatedItem]
-    const updatedCart = {
-      ...cart,
-      items: updatedItems,
-    }
-    this.setState({ cart: updatedCart }, () => {
-      this.updateCartTotalPrice()
-    })
+    // const { cart } = this.state
+    // const updatedItem = {
+    //   ...item,
+    // }
+    // const updatedItems = [...cart.items, updatedItem]
+    // const updatedCart = {
+    //   ...cart,
+    //   items: updatedItems,
+    // }
+    // this.setState({ cart: updatedCart }, () => {
+    //   this.updateCartTotalPrice()
+    // })
   }
 
   updateCartTotalPrice = () => {
-    let { cart } = this.state
-    let { items } = cart
-    let totalCartPrice = 0
-    for (let i = 0; i < items.length; ++i) {
-      totalCartPrice = totalCartPrice + items[i].price
-    }
-    let tax = totalCartPrice * 0.0725
-    let totalCartPriceAfterTax = totalCartPrice + tax
-    cart.cartPrice = { totalCartPrice, tax, totalCartPriceAfterTax }
-    this.setState({
-      cart,
-    })
+    // let { cart } = this.state
+    // let { items } = cart
+    // let totalCartPrice = 0
+    // for (let i = 0; i < items.length; ++i) {
+    //   totalCartPrice = totalCartPrice + items[i].price
+    // }
+    // let tax = totalCartPrice * 0.0725
+    // let totalCartPriceAfterTax = totalCartPrice + tax
+    // cart.cartPrice = { totalCartPrice, tax, totalCartPriceAfterTax }
+    // this.setState({
+    //   cart,
+    // })
   }
 
   handleRemoveCartItem = (id) => {
-    const { cart } = this.state
-    for (let i = 0; i < cart.items.length; ++i) {
-      if (cart.items[i].id === id) {
-        cart.items.splice(i, 1)
-      }
-    }
-    this.setState(cart, () => {
-      this.updateCartTotalPrice()
-    })
+    // const { cart } = this.state
+    // for (let i = 0; i < cart.items.length; ++i) {
+    //   if (cart.items[i].id === id) {
+    //     cart.items.splice(i, 1)
+    //   }
+    // }
+    // this.setState(cart, () => {
+    //   this.updateCartTotalPrice()
+    // })
   }
 
   handleClearCart = () => {
-    const { cart } = this.state
-    cart.items = []
-    cart.status = ""
-    this.setState({ cart }, () => {
-      this.updateCartTotalPrice()
-    })
+    // const { cart } = this.state
+    // cart.items = []
+    // cart.status = ""
+    // this.setState({ cart }, () => {
+    //   this.updateCartTotalPrice()
+    // })
   }
 
   handleAddToOrder = () => {
-    const { cart } = this.state
-    this.props.addToOrder(cart)
+    // const { cart } = this.state
+    // this.props.addToOrder(cart)
   }
 
   render() {

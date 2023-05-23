@@ -3,6 +3,7 @@
 import Button from "./button"
 import { CartContext } from "./cartContext"
 import CartIcon from "./icons/CartIcons"
+import Image from "next/image"
 import Link from "next/link"
 import styled from "styled-components"
 import { useContext } from "react"
@@ -59,13 +60,18 @@ const Price = styled.div`
 
 export default function ProductBox({ _id, title, description, price, images }) {
   //const { addProduct } = useContext(CartContext)
-  const url = "/product/" + _id
+  const url = "/"+description+"/" + _id
   return (
     <ProductWrapper>
       <WhiteBox href={url}>
         <div>
-          <img className="coffeeImg" alt="coffee" src={images} />
-          {/* <img src={images?.[0]} alt="" /> */}
+          <img
+            className="coffeeImg"
+            alt="coffee"
+            height={60}
+            width={60}
+            src={images}
+          />
         </div>
       </WhiteBox>
       <ProductInfoBox>
@@ -76,7 +82,7 @@ export default function ProductBox({ _id, title, description, price, images }) {
             block
             primary
             outline
-            onClick={() => this.handleOrderClick(order._id)}
+            //onClick={() => <ProductBox key={product._id} {...product} />}
           >
             Add to cart
           </Button>
