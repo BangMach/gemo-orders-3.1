@@ -1,10 +1,29 @@
 "use client"
 
-import { FormattedMessage, IntlProvider } from "react-intl"
 import React, { Component } from "react"
 
-//import { FormattedMessage } from "react-intl"
-
+const sampleData = [
+  {
+    id: 1,
+    type: "Coffee",
+    drink: "Latte",
+    size: "Medium",
+    hasWhippingCream: true,
+    milkOption: "Almond Milk",
+    chocolateSaucePumps: 1,
+    quantity: 1,
+    price: 4.99,
+  },
+  {
+    id: 2,
+    drink: false,
+    food: "Sandwich",
+    additionalFoods: ["Chips", "Cookie"],
+    quantity: 1,
+    price: 8.99,
+  },
+  // Add more sample data as needed
+]
 class Cart extends Component {
   constructor(props) {
     super(props)
@@ -23,71 +42,24 @@ class Cart extends Component {
     }
   }
 
-  addToCart = (item) => {
-    // const { cart } = this.state
-    // const updatedItem = {
-    //   ...item,
-    // }
-    // const updatedItems = [...cart.items, updatedItem]
-    // const updatedCart = {
-    //   ...cart,
-    //   items: updatedItems,
-    // }
-    // this.setState({ cart: updatedCart }, () => {
-    //   this.updateCartTotalPrice()
-    // })
-  }
+  addToCart = (item) => {}
 
-  updateCartTotalPrice = () => {
-    // let { cart } = this.state
-    // let { items } = cart
-    // let totalCartPrice = 0
-    // for (let i = 0; i < items.length; ++i) {
-    //   totalCartPrice = totalCartPrice + items[i].price
-    // }
-    // let tax = totalCartPrice * 0.0725
-    // let totalCartPriceAfterTax = totalCartPrice + tax
-    // cart.cartPrice = { totalCartPrice, tax, totalCartPriceAfterTax }
-    // this.setState({
-    //   cart,
-    // })
-  }
+  updateCartTotalPrice = () => {}
 
-  handleRemoveCartItem = (id) => {
-    // const { cart } = this.state
-    // for (let i = 0; i < cart.items.length; ++i) {
-    //   if (cart.items[i].id === id) {
-    //     cart.items.splice(i, 1)
-    //   }
-    // }
-    // this.setState(cart, () => {
-    //   this.updateCartTotalPrice()
-    // })
-  }
+  handleRemoveCartItem = (id) => {}
 
-  handleClearCart = () => {
-    // const { cart } = this.state
-    // cart.items = []
-    // cart.status = ""
-    // this.setState({ cart }, () => {
-    //   this.updateCartTotalPrice()
-    // })
-  }
+  handleClearCart = () => {}
 
-  handleAddToOrder = () => {
-    // const { cart } = this.state
-    // this.props.addToOrder(cart)
-  }
+  handleAddToOrder = () => {}
+  totalPrice = sampleData.reduce((total, item) => total + item.price, 0)
 
   render() {
-    const { cart } = this.state
-    const { items } = cart
+    //const { cart } = this.state
+    //const { items } = sampleData;
 
     return (
       <div className="container border rounded">
-        <h2 style={{ marginTop: "15px" }}>
-          <FormattedMessage id="cart.title" defaultMessage="Cart" />
-        </h2>
+        <h2 style={{ marginTop: "15px" }}>Cart Info</h2>
 
         <table className="table">
           <thead>
@@ -99,112 +71,62 @@ class Cart extends Component {
             </tr>
           </thead>
           <tbody>
-            {items.length > 0 ? (
-              <>
-                {items.map((item) => (
-                  <tr key={item.id}>
-                    <td>
-                      {item.drink !== undefined ? (
-                        <p>
-                          Drink: {item.type} {item.drink}: size {item.size}
-                          {item.hasWhippingCream && ", has whipping cream"}
-                          {item.milkOption !== "none" && `, ${item.milkOption}`}
-                          {item.chocolateSaucePumps > 0 &&
-                            `, ${item.chocolateSaucePumps} chocolate sauce`}
-                        </p>
-                      ) : (
-                        <p>
-                          Food: {item.food}
-                          {item.additionalFoods.length > 0 && ": "}
-                          {item.additionalFoods.map((food, index) => (
-                            <span key={index}>
-                              {`${food}${
-                                index !== item.additionalFoods.length - 1
-                                  ? ", "
-                                  : ""
-                              }`}
-                            </span>
-                          ))}
-                        </p>
-                      )}
-                    </td>
-                    <td>{1}</td>
-                    <td>${item.price.toFixed(2)}</td>
-                    <td>
-                      <button
-                        className="btn btn-danger"
-                        onClick={() => this.handleRemoveCartItem(item.id)}
-                      >
-                        <FormattedMessage
-                          id="cart.remove"
-                          defaultMessage="Remove"
-                        />
-                      </button>
-                    </td>
-                    <td></td>
-                  </tr>
-                ))}
-                <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td>
-                    <button
-                      onClick={this.handleClearCart}
-                      className="btn btn-secondary"
-                    >
-                      <FormattedMessage
-                        id="cart.clear"
-                        defaultMessage="Clear Cart"
-                      />
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td>
-                    <button
-                      onClick={this.handleAddToOrder}
-                      className="btn btn-success"
-                    >
-                      <FormattedMessage
-                        id="cart.addOrder"
-                        defaultMessage="Add To Order"
-                      />
-                    </button>
-                  </td>
-                </tr>
-              </>
-            ) : (
-              <tr>
+            {sampleData.map((item) => (
+              <tr key={item.id}>
                 <td>
-                  <FormattedMessage
-                    id="cart.empty"
-                    defaultMessage="No items in cart"
-                  />
+                  {item.drink !== undefined ? (
+                    <p>
+                      Drink: {item.type} {item.drink}: size {item.size}
+                      {item.hasWhippingCream && ", has whipping cream"}
+                      {item.milkOption !== "none" && `, ${item.milkOption}`}
+                      {item.chocolateSaucePumps! > 0 &&
+                        `, ${item.chocolateSaucePumps} chocolate sauce`}
+                    </p>
+                  ) : (
+                    <p>
+                      Food: {item.food}
+                      {item.additionalFoods.length > 0 && ": "}
+                      {item.additionalFoods.map((food, index) => (
+                        <span key={index}>
+                          {`${food}${
+                            index !== item.additionalFoods.length - 1
+                              ? ", "
+                              : ""
+                          }`}
+                        </span>
+                      ))}
+                    </p>
+                  )}
                 </td>
+                <td>{item.quantity}</td>
+                <td>${item.price.toFixed(2)}</td>
+                <td>
+                  <button
+                    className="btn btn-danger"
+                    onClick={() => this.handleRemoveCartItem(item.id)}
+                  ></button>
+                </td>
+                <td></td>
               </tr>
-            )}
+            ))}
           </tbody>
           <tfoot>
             <tr>
               <td>Total Price:</td>
               <td></td>
-              <td>${cart.cartPrice.totalCartPrice.toFixed(2)}</td>
+              <td>${}</td>
               <td></td>
             </tr>
             <tr>
               <td>Tax:</td>
               <td></td>
-              <td>${cart.cartPrice.tax.toFixed(2)}</td>
+              <td>${}</td>
               <td></td>
             </tr>
             <tr>
               <td>Total Price After Tax:</td>
               <td></td>
-              <td>${cart.cartPrice.totalCartPriceAfterTax.toFixed(2)}</td>
+              <td>${}</td>
               <td></td>
             </tr>
           </tfoot>
