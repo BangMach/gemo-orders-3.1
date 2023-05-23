@@ -25,3 +25,23 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+input{
+  @apply border-2 border-gray-400 rounded-md px-1;
+}
+
+button{
+ @apply bg-blue-600 text-white px-4 py-1 rounded-lg;
+}
+
+table.basic{
+  @apply w-full bg-white
+}
+
+table.basic thead tr td {
+  @apply text-sm text-gray-600 uppercase
+}
+
+table.basic tr td{
+  @apply px-4 py-1;
+}

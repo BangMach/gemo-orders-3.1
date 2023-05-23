@@ -1,6 +1,7 @@
 "use client"
+
 import Button from "./button"
-import { CartContext } from "./CartContext"
+import { CartContext } from "./cartContext"
 import CartIcon from "./icons/CartIcons"
 import Link from "next/link"
 import styled from "styled-components"
@@ -63,11 +64,7 @@ export default function ProductBox({ _id, title, description, price, images }) {
     <ProductWrapper>
       <WhiteBox href={url}>
         <div>
-          <img
-            className="coffeeImg"
-            alt="coffee"
-            src={images}
-          />
+          <img className="coffeeImg" alt="coffee" src={images} />
           {/* <img src={images?.[0]} alt="" /> */}
         </div>
       </WhiteBox>
@@ -75,7 +72,12 @@ export default function ProductBox({ _id, title, description, price, images }) {
         <Title href={url}>{title}</Title>
         <PriceRow>
           <Price>${price}</Price>
-          <Button block primary outline>
+          <Button
+            block
+            primary
+            outline
+            onClick={() => this.handleOrderClick(order._id)}
+          >
             Add to cart
           </Button>
         </PriceRow>

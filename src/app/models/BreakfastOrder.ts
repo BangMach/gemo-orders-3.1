@@ -10,3 +10,5 @@ const breakfastOrderSchema = new mongoose.Schema({
     ref: 'Order'
   }
 });
+const BreakfastOrder = mongoose.model('BreakfastOrder', breakfastOrderSchema);
+module.exports = {BreakfastOrder};

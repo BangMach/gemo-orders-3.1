@@ -27,3 +27,6 @@ const drinkSchema = new mongoose.Schema({
     ref: 'DrinkOrder'
   }]
 });
+const Drink = mongoose.model('Drink', drinkSchema);
+module.exports = {
+Drink};
