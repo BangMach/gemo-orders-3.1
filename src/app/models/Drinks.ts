@@ -1,4 +1,4 @@
-import mongoose, { model, Schema, models, Model } from "mongoose";
+import mongoose, { model, Schema, Model } from "mongoose";
 
 export interface IDrink {
     _id: string;

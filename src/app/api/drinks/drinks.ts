@@ -16,14 +16,7 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
 
     if (method === 'PUT') {
         const { size, type, chocolateSauce, whippedCream, _id } = req.body;
-        await Drinks.updateOne({ id:  _id }, { size: size, type: type, chocolateSauce: chocolateSauce, whippedCream: whippedCream });
+        await Drinks.updateOne({ id: _id }, { size: size, type: type, chocolateSauce: chocolateSauce, whippedCream: whippedCream });
         res.json(true);
-    }
-
-    if (method === 'DELETE') {
-        if (req.query?.id) {
-            await Drinks.deleteOne({ _id: req.query?.id });
-            res.json(true);
-        }
     }
 }

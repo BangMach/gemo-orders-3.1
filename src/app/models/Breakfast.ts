@@ -17,6 +17,5 @@ const breakfastSchema = new mongoose.Schema({
   }]
 });
 
-const Breakfast = mongoose.model('Breakfast', breakfastSchema);
+export const Breakfast = mongoose.model('Breakfast', breakfastSchema);
 
-module.exports = {Breakfast}
