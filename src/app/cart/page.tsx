@@ -74,30 +74,15 @@ class Cart extends Component {
             {sampleData.map((item) => (
               <tr key={item.id}>
                 <td>
-                  {item.drink !== undefined ? (
-                    <p>
-                      Drink: {item.type} {item.drink}: size {item.size}
-                      {item.hasWhippingCream && ", has whipping cream"}
-                      {item.milkOption !== "none" && `, ${item.milkOption}`}
-                      {item.chocolateSaucePumps! > 0 &&
-                        `, ${item.chocolateSaucePumps} chocolate sauce`}
-                    </p>
-                  ) : (
-                    <p>
-                      Food: {item.food}
-                      {item.additionalFoods.length > 0 && ": "}
-                      {item.additionalFoods.map((food, index) => (
-                        <span key={index}>
-                          {`${food}${
-                            index !== item.additionalFoods.length - 1
-                              ? ", "
-                              : ""
-                          }`}
-                        </span>
-                      ))}
-                    </p>
-                  )}
+                  <p>
+                    Drink: {item.type} {item.drink}: size {item.size}
+                    {item.hasWhippingCream && ", has whipping cream"}
+                    {item.milkOption !== "none" && `, ${item.milkOption}`}
+                    {item.chocolateSaucePumps! > 0 &&
+                      `, ${item.chocolateSaucePumps} chocolate sauce`}
+                  </p>
                 </td>
+
                 <td>{item.quantity}</td>
                 <td>${item.price.toFixed(2)}</td>
                 <td>
