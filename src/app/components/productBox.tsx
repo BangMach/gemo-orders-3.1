@@ -1,7 +1,6 @@
 "use client"
 
 import Button from "./button"
-import { CartContext } from "./cartContext"
 import CartIcon from "./icons/CartIcons"
 import Image from "next/image"
 import Link from "next/link"
@@ -58,9 +57,10 @@ const Price = styled.div`
   }
 `
 
+
+
 export default function ProductBox({ _id, title, description, price, images }) {
-  //const { addProduct } = useContext(CartContext)
-  const url = "/"+description+"/" + _id
+  const url = "/" + description + "/" + _id
   return (
     <ProductWrapper>
       <WhiteBox href={url}>

@@ -1,7 +1,4 @@
-import { FC } from "react"
 import LayOut from "../../components/layout"
-import ProductBox from "../../components/productBox"
-import { StyledProductsGrid } from "../../components/productGrid"
 
 // Sample product data
 const breakfasts = [
