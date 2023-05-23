@@ -21,3 +21,4 @@ const DrinkSchema = new Schema({
     timestamps: true,
 });
 export const Drinks: Model<IDrink> = model<IDrink>('Drinks', DrinkSchema);
+

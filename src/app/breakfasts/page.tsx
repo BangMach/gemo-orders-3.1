@@ -19,6 +19,7 @@ const products = [
   },
   // Add more products here
 ]
+
 export default function Breakfast() {
   return (
     <>

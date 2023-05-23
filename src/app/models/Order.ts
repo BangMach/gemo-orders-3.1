@@ -19,4 +19,5 @@ const orderSchema = new mongoose.Schema({
     default: 'InProgress'
   }
 });
-export const Order = mongoose.model('Order', orderSchema);
+const Order = mongoose.model('Order', orderSchema);
+module.exports = {Order};

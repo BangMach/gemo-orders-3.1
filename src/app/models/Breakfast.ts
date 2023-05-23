@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+
 const breakfastSchema = new mongoose.Schema({
   foodType: {
     type: String,
@@ -16,3 +17,6 @@ const breakfastSchema = new mongoose.Schema({
   }]
 });
 
+const Breakfast = mongoose.model('Breakfast', breakfastSchema);
+
+module.exports = {Breakfast}

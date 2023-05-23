@@ -10,3 +10,6 @@ const drinkOrderSchema = new mongoose.Schema({
     ref: 'Order'
   }
 });
+const DrinkOrder = mongoose.model('DrinkOrder', drinkOrderSchema);
+module.exports = {
+DrinkOrder}
