@@ -1,3 +1,4 @@
+import LayOut from "./components/layout"
 import dynamic from "next/dynamic"
 
 const DynamicHomeComponent = dynamic(() => import("./components/home"), {
@@ -5,5 +6,5 @@ const DynamicHomeComponent = dynamic(() => import("./components/home"), {
 })
 
 export default function Home() {
-  return <DynamicHomeComponent />
+  return <LayOut>Dashboard</LayOut>
 }
