@@ -4,7 +4,7 @@ import LayOut from "../components/layout"
 interface DashBoardProps {}
 
 const DashBoard: FC<DashBoardProps> = ({}) => {
-  return <LayOut>Test</LayOut>
+  return <LayOut>Dashboard</LayOut>
 }
 
 export default DashBoard

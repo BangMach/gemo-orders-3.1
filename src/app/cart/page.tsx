@@ -1,6 +1,7 @@
 "use client"
 
 import React, { Component } from "react"
+import LayOut from "../components/layout"
 
 const sampleData = [
   {
@@ -58,65 +59,67 @@ class Cart extends Component {
     //const { items } = sampleData;
 
     return (
-      <div className="container border rounded">
-        <h2 style={{ marginTop: "15px" }}>Cart Info</h2>
+      <LayOut>
+        <div className="container border rounded">
+          <h2 style={{ marginTop: "15px" }}>Cart Info</h2>
 
-        <table className="table">
-          <thead>
-            <tr>
-              <th>Product Name</th>
-              <th>Quantity</th>
-              <th>Price</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            {sampleData.map((item) => (
-              <tr key={item.id}>
-                <td>
-                  <p>
-                    Drink: {item.type} {item.drink}: size {item.size}
-                    {item.hasWhippingCream && ", has whipping cream"}
-                    {item.milkOption !== "none" && `, ${item.milkOption}`}
-                    {item.chocolateSaucePumps! > 0 &&
-                      `, ${item.chocolateSaucePumps} chocolate sauce`}
-                  </p>
-                </td>
+          <table className="table">
+            <thead>
+              <tr>
+                <th>Product Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {sampleData.map((item) => (
+                <tr key={item.id}>
+                  <td>
+                    <p>
+                      Drink: {item.type} {item.drink}: size {item.size}
+                      {item.hasWhippingCream && ", has whipping cream"}
+                      {item.milkOption !== "none" && `, ${item.milkOption}`}
+                      {item.chocolateSaucePumps! > 0 &&
+                        `, ${item.chocolateSaucePumps} chocolate sauce`}
+                    </p>
+                  </td>
 
-                <td>{item.quantity}</td>
-                <td>${item.price.toFixed(2)}</td>
-                <td>
-                  <button
-                    className="btn btn-danger"
-                    onClick={() => this.handleRemoveCartItem(item.id)}
-                  ></button>
-                </td>
+                  <td>{item.quantity}</td>
+                  <td>${item.price.toFixed(2)}</td>
+                  <td>
+                    <button
+                      className="btn btn-danger"
+                      onClick={() => this.handleRemoveCartItem(item.id)}
+                    ></button>
+                  </td>
+                  <td></td>
+                </tr>
+              ))}
+            </tbody>
+            <tfoot>
+              <tr>
+                <td>Total Price:</td>
+                <td></td>
+                <td>${}</td>
                 <td></td>
               </tr>
-            ))}
-          </tbody>
-          <tfoot>
-            <tr>
-              <td>Total Price:</td>
-              <td></td>
-              <td>${}</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>Tax:</td>
-              <td></td>
-              <td>${}</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>Total Price After Tax:</td>
-              <td></td>
-              <td>${}</td>
-              <td></td>
-            </tr>
-          </tfoot>
-        </table>
-      </div>
+              <tr>
+                <td>Tax:</td>
+                <td></td>
+                <td>${}</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Total Price After Tax:</td>
+                <td></td>
+                <td>${}</td>
+                <td></td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </LayOut>
     )
   }
 }
