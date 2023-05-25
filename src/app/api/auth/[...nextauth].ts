@@ -1,11 +1,12 @@
+import * as dotenv from 'dotenv';
+
 import NextAuth, { getServerSession } from 'next-auth'
+
 import GoogleProvider from 'next-auth/providers/google'
 import { MongoDBAdapter } from "@next-auth/mongodb-adapter";
 import clientPromise from '@/app/lib/mongodb';
-import * as dotenv from 'dotenv';
 
 const adminEmails = ['hnim1922@gmail.com',''];
-dotenv.config()
 export const authOptions = {
 
 
@@ -16,6 +17,9 @@ export const authOptions = {
             clientSecret: process.env.GOOGLE_SECRET || ""
         }),
     ],
+    pages: {
+        signIn:"/signin"
+    },
     adapter: MongoDBAdapter(clientPromise),
     callbacks: {
         session: ({ session, token, user }) => {
@@ -28,7 +32,8 @@ export const authOptions = {
     },
 };
 
-export default NextAuth(authOptions);
+const handler = NextAuth(authOptions);
+export {handler as GET, handler as POST}
 
 export async function isAdminRequest(req, res) {
     const session = await getServerSession(req, res, authOptions);
