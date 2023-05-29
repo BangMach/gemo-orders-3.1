@@ -1,3 +1,6 @@
+"use client"
+
+import Header from "../components/header"
 import LayOut from "../components/layout"
 import ProductBox from "../components/productBox"
 import { StyledProductsGrid } from "../components/productGrid"
@@ -36,6 +39,7 @@ export default function Breakfast() {
   return (
     <>
       <LayOut>
+        <Header></Header>
         <StyledProductsGrid>
           {breakfasts?.length > 0 &&
             breakfasts.map((breakfast) => (

@@ -2,6 +2,7 @@
 
 import { signIn, useSession } from "next-auth/react"
 
+import Header from "./header"
 import Nav from "../components/nav"
 import { useState } from "react"
 

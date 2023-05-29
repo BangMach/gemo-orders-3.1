@@ -2,7 +2,20 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+Copy `.env.example` to `.env` and fill in the values:
+
+- `MONGODB_URI`: Your MongoDB connection string.
+- `DB_NAME`: The name of the database to use.
+- `GOOGLE_ID`: Your Google OAuth Client ID. Read more [here](https://developers.google.com/identity/gsi/web/guides/get-google-api-clientid).
+- `GOOGLE_SECRET`: Your Google OAuth Client Secret. Read more [here](https://developers.google.com/identity/gsi/web/guides/get-google-api-clientid).
+
+First, install the neccessary dependencies:
+
+```bash
+npm install
+```
+
+Next, we can run locally:
 
 ```bash
 npm run dev
@@ -31,4 +44,9 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
+- Create a new project on Vercel.
+- Setup all the environment variables (see `.env.example`). More info [here](https://vercel.com/docs/concepts/projects/environment-variables).
+- Deploy from your GitHub repository.
+
+The Live Web Demo can be found here: <https://gemo-orders-3-1-six.vercel.app/>.
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
