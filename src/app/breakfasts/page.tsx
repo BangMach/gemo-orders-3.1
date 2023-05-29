@@ -1,9 +1,10 @@
 "use client"
 
-import Header from "../components/header"
 import LayOut from "../components/layout"
+import NavBar from "../components/navBar"
 import ProductBox from "../components/productBox"
 import { StyledProductsGrid } from "../components/productGrid"
+import { UserProvider } from "@auth0/nextjs-auth0/client"
 
 // Sample product data
 const breakfasts = [
@@ -29,9 +30,9 @@ const breakfasts = [
 
 export default function Breakfast() {
   return (
-    <>
+    <UserProvider>
       <LayOut>
-        <Header></Header>
+        <NavBar></NavBar>
         <StyledProductsGrid>
           {breakfasts?.length > 0 &&
             breakfasts.map((breakfast) => (
@@ -39,6 +40,6 @@ export default function Breakfast() {
             ))}
         </StyledProductsGrid>
       </LayOut>
-    </>
+    </UserProvider>
   )
 }

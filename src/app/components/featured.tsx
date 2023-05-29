@@ -1,7 +1,7 @@
 import Button from "./button"
 import ButtonLink from "./buttonLink"
 import CartIcon from "./icons/CartIcons"
-import Center from "./Center"
+import Center from "./center"
 import styled from "styled-components"
 import { useContext } from "react"
 

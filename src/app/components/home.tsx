@@ -2,10 +2,18 @@
 
 import { SessionProvider, useSession } from "next-auth/react"
 
+import { AuthRequiredError } from "../lib/exception"
 import LayOut from "./layout"
+import { ReactNode } from "react"
 
-export default function HomeComponent() {
-  const { data: session } = useSession()
+interface IProps {
+  children: ReactNode
+  session: any
+}
+
+export default function HomeComponent({ children, session }: IProps) {
+  if (!session) throw new AuthRequiredError()
+
   return (
     <SessionProvider session={session}>
       <LayOut>

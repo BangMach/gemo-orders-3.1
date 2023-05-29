@@ -4,6 +4,7 @@ import BarsIcon from "./icons/bars"
 import Center from "./center"
 import Link from "next/link"
 import styled from "styled-components"
+import { useUser } from "@auth0/nextjs-auth0/client"
 
 const StyledHeader = styled.header`
   background-color: #222;
