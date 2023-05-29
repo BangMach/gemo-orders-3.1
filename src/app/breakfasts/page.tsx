@@ -1,6 +1,8 @@
 import LayOut from "../components/layout"
 import ProductBox from "../components/productBox"
 import { StyledProductsGrid } from "../components/productGrid"
+import { redirect } from "next/navigation"
+import { useSession } from "next-auth/react"
 
 // Sample product data
 const breakfasts = [
@@ -25,6 +27,12 @@ const breakfasts = [
 ]
 
 export default function Breakfast() {
+  const { data: session } = useSession({
+    required: true,
+    onUnauthenticated() {
+      redirect("/signin?callbackUrl=/breakfasts")
+    },
+  })
   return (
     <>
       <LayOut>
