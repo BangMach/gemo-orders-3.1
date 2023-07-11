@@ -7,7 +7,6 @@ import {
 import { Menu, Transition } from "@headlessui/react"
 import { signIn, signOut, useSession } from "next-auth/react"
 
-import Image from "next/image"
 import Link from "next/link"
 import clsx from "clsx"
 
@@ -21,12 +20,7 @@ const SignInButton = () => {
           <Menu.Button>
             {session?.user?.image ? (
               <div className="relative h-10 w-10">
-                <Image
-                  src={session.user.image}
-                  alt="use image"
-                  className="inline-block rounded-full"
-                  fill
-                />
+                user
               </div>
             ) : (
               <span className="inline-block h-8 w-8 overflow-hidden rounded-full bg-stone-100">
